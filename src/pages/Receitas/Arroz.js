@@ -1,7 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-import receitas from './assets/Receitas.json'
-import { useState } from 'react';
+import receitas from "../../assets/Receitas.json";
 // import styled from "";
 // const Button = styled.button`
 //   color: var(--white);
@@ -29,17 +26,18 @@ export default () => {
   // const [receitasNome, setReceitasNome] = useState();
   // const [receitasIngredientes,setReceitasIngredientes] = useState();
   // const [receitasModoPreparo, setReceitasModoPreparo] = useState();
-  console.log(receitas)
+  console.log(receitas);
   return (
     <header>
       {receitas.map((receita) => {
         console.log(receita);
         return (
           <div>
-            <div style={{flexDirection:'row'}}>
-
-            <text style={{fontSize:40}}>Receita: </text>
-            <text style={{ fontWeight: "400", fontSize:30 }}>{receita.nome}</text>
+            <div style={{ flexDirection: "row" }}>
+              <text style={{ fontSize: 40 }}>Receita: </text>
+              <text style={{ fontWeight: "400", fontSize: 30 }}>
+                {receita.nome}
+              </text>
             </div>
             <h3>Ingredientes:</h3>
             <ul>
@@ -47,7 +45,7 @@ export default () => {
                 <li>{ingrediente}</li>
               ))}
             </ul>
-                <h3>Modo de Preparo:</h3>
+            <h3>Modo de Preparo:</h3>
             <ul>
               {receita.modoPreparo.map((etapa) => (
                 <li>{etapa}</li>
@@ -72,6 +70,4 @@ export default () => {
       </header> */}
     </header>
   );
-}
-
-
+};
