@@ -28,31 +28,32 @@ export default () => {
   // const [receitasModoPreparo, setReceitasModoPreparo] = useState();
   console.log(receitas);
   return (
-    <header>
+    <body style={{ margin:50, justifyContent: "center", alignItems: "center" }}>
       {receitas.map((receita) => {
         console.log(receita);
-        return (
-          <div>
-            <div style={{ flexDirection: "row" }}>
-              <text style={{ fontSize: 40 }}>Receita: </text>
-              <text style={{ fontWeight: "400", fontSize: 30 }}>
-                {receita.nome}
-              </text>
+        if (receita.nome === "Arroz")
+          return (
+            <div style={{ alignSelf:'center' }}>
+              <div style={{ flexDirection: "row" }}>
+                <text style={{ fontSize: 40 }}>Receita: </text>
+                <text style={{ fontWeight: "400", fontSize: 30 }}>
+                  {receita.nome}
+                </text>
+              </div>
+              <h3>Ingredientes:</h3>
+              <ul>
+                {receita.ingredientes.map((ingrediente) => (
+                  <li>{ingrediente}</li>
+                ))}
+              </ul>
+              <h3>Modo de Preparo:</h3>
+              <ul>
+                {receita.modoPreparo.map((etapa) => (
+                  <li>{etapa}</li>
+                ))}
+              </ul>
             </div>
-            <h3>Ingredientes:</h3>
-            <ul>
-              {receita.ingredientes.map((ingrediente) => (
-                <li>{ingrediente}</li>
-              ))}
-            </ul>
-            <h3>Modo de Preparo:</h3>
-            <ul>
-              {receita.modoPreparo.map((etapa) => (
-                <li>{etapa}</li>
-              ))}
-            </ul>
-          </div>
-        );
+          );
       })}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -68,6 +69,6 @@ export default () => {
           Learn React
         </a>
       </header> */}
-    </header>
+    </body>
   );
 };
