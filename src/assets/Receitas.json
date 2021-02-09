@@ -1,8 +1,20 @@
-[
+{
+
+    "tipo":"Receita",
+    "receitas":[
     {
         "nome":"Arroz",
         "ingredientes":["Arroz","Sal","Alho","Orégano (OPCIONAL)", "Água"],
         "modoPreparo":["Lave o arroz e deixe-o escorrer", "Coloque o arroz em uma panela com um fio de azeite ou óleo de cozinha de sua preferência","Mexa até que o arroz fique levemente torrado (não é para escurecê-lo, o ponto certo é quando você bater a colher e ele ganhar uma consistência de vidro)","Quando estiver nesse ponto, coloque tempero (alho, sal e orégano) a gosto e coloque água suficiente para cubrir o arroz e deixe cozinhar até a água secar"]
 
+    },
+    {
+        "nome":"Crepioca",
+        "ingredientes":["Ovo","Sal","Goma de Tapioca","Orégano (OPCIONAL)", "Recheios a gosto (mussarela, presunto por exemplo)"],
+        "modoPreparo":["Pegue uma caneca e quebre o ovo nela, mexa-o e jogue sal a gosto", "Pegue a Goma de Taipoca e jogue na caneca até que cubra o ovo","Misture-os","Após bem misturado, jogue-os numa frigideira", "Deixe esquentar até que o lado de cima fique seco","Vire a crepioca","Agora o outro lado ficará pronto bem rápido, então jogue o recheio que desejar", "Vendo que a crepioca ja está fazendo um barulhinho ou está deslizando na frigideira, desligue o fogo","Dobre a crepioca e Bom apetite"]
+
     }
+
 ]
+
+}

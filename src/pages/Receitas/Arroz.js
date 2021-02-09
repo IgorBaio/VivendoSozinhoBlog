@@ -22,16 +22,18 @@ import receitas from "../../assets/Receitas.json";
 //   }
 // `;
 
-export default () => {
+export default ({match}) => {
+  const {params} = match;
+  const {nome} = params
   // const [receitasNome, setReceitasNome] = useState();
   // const [receitasIngredientes,setReceitasIngredientes] = useState();
   // const [receitasModoPreparo, setReceitasModoPreparo] = useState();
-  console.log(receitas);
+  console.log(nome);
   return (
     <body style={{ margin:50, justifyContent: "center", alignItems: "center" }}>
-      {receitas.map((receita) => {
+      {receitas.receitas.map((receita) => {
         console.log(receita);
-        if (receita.nome === "Arroz")
+        if (receita.nome === nome)
           return (
             <div style={{ alignSelf:'center' }}>
               <div style={{ flexDirection: "row" }}>

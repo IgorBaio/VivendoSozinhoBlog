@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Arroz from './pages/Receitas/Arroz';
+import Receita from './pages/Receitas/Arroz';
 
 const Pagina404 = () => <div>Página 404</div>;
 
@@ -12,7 +12,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/" component={App} exact />
-      <Route path="/Arroz" component={Arroz} />
+      <Route path="/Receita/:nome" component={Receita} />
+      {/* <Route path="/Arroz" component={Arroz} /> */}
       
       <Route component={Pagina404} />
     </Switch>

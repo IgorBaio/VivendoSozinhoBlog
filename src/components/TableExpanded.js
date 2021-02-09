@@ -38,15 +38,14 @@ function createData(name, calories, fat, carbs, protein, price) {
   };
 }
 
-function Row(props) {
-  const { row } = props;
+function Row({row, tipo}) {
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
 
   return (
     <React.Fragment>
       <TableRow className={classes.root}>
-        <TableCell>
+         <TableCell>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -56,7 +55,7 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.name}
+          {tipo}
         </TableCell>
         <TableCell align="right">{row.calories}</TableCell>
         <TableCell align="right">{row.fat}</TableCell>
@@ -68,13 +67,13 @@ function Row(props) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
               <Typography variant="h6" gutterBottom component="div">
-                Arroz (receitaItem)
+                {row.nome}
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
                     <TableCell>
-                      <a href="/Arroz">Ir para a Pagina</a>
+                      <a href={`/Receita/${row.nome}`}>Ir para a Pagina</a>
                     </TableCell>
                     {/* <TableCell>
                       <a href="/Arroz">Customer</a>
@@ -117,6 +116,17 @@ const rows = [
 ];
 
 export default function TableExpanded({receitas}) {
+  const classes = useRowStyles();
+   const [open, setOpen] = React.useState(false);
+  const rows2 = []
+  const tipo = receitas.tipo
+  receitas.receitas.forEach(i=>{
+  rows2.push( {
+    nome: i.nome,
+    ingredientes: i.ingredientes,
+    modoPreparo: i.modoPreparo,
+  });
+})
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -131,9 +141,52 @@ export default function TableExpanded({receitas}) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <Row key={row.name} row={row} />
-          ))}
+          <>
+            <TableRow className={classes.root}>
+              <TableCell>
+                <IconButton
+                  aria-label="expand row"
+                  size="small"
+                  onClick={() => setOpen(!open)}
+                >
+                  {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                </IconButton>
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {tipo}
+              </TableCell>
+            </TableRow>
+
+            {rows2.map((row) => (
+              // <Row key={row.name} row={row} tipo={tipo} />
+              <TableRow>
+                <TableCell
+                  style={{ paddingBottom: 0, paddingTop: 0 }}
+                  colSpan={6}
+                >
+                  <Collapse in={open} timeout="auto" unmountOnExit>
+                    <Box margin={1}>
+                      <Typography variant="h6" gutterBottom component="div">
+                        {row.nome}
+                      </Typography>
+                      <Table size="small" aria-label="purchases">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>
+                              <a href={`/Receita/${row.nome}`}>Ir para a Pagina</a>
+                            </TableCell>
+                            {/* <TableCell>
+                      <a href="/Arroz">Customer</a>
+                    </TableCell> */}
+                          </TableRow>
+                        </TableHead>
+                      </Table>
+                    </Box>
+                  </Collapse>
+                </TableCell>
+              </TableRow>
+            ))}
+          </>
         </TableBody>
       </Table>
     </TableContainer>

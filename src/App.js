@@ -48,7 +48,7 @@ export default () => {
       </header>
       <body>
         <h3>Aqui segue nossa primeira receita postada: </h3>
-        <a href="/Arroz">Arroz</a>
+        {/* <a href="/Arroz">Arroz</a> */}
         <TableExpanded receitas={receitas} />
       </body>
     </div>
